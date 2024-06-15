@@ -1,0 +1,63 @@
+.analytics-container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: rgb(226, 221, 234);
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.analytics-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Helps in making table responsive */
+}
+
+.analytics-container th, .analytics-container td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  word-wrap: break-word; /* Helps in wrapping long text */
+}
+
+.analytics-container th {
+  background-color: #f4f4f4;
+}
+
+/* For smaller screens */
+@media only screen and (max-width: 800px) {
+  .analytics-container {
+    padding: 80px ;
+  }
+
+  .analytics-container h2 {
+    padding: 10px 0px 15px 60px;
+    
+  }
+
+  .analytics-container table, .analytics-container th, .analytics-container td {
+    display: block; /* Make table elements block-level */
+    width: 100%;
+  }
+
+  .analytics-container th, .analytics-container td {
+    text-align: left; /* Align text to the right for better readability */
+    position: relative;
+    padding-left: 10%  ; /* Create space for labels on the left */
+  }
+
+  .analytics-container th::before, .analytics-container td::before {
+    content: attr(data-label); /* Use data-label attribute for column names */
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .analytics-container th::before {
+    background-color: #f4f4f4;
+  }
+}
