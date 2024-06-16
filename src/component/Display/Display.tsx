@@ -55,7 +55,7 @@ const Display: React.FC = () => {
       .then(response => response.json())
       .then(data => {
         setArticles(data);
-        setLoading(false); // Moved this inside the .then callback
+        setLoading(false); 
       });
   }, []);
 

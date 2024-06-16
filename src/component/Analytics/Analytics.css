@@ -10,14 +10,14 @@
 .analytics-container table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* Helps in making table responsive */
+  table-layout: fixed; 
 }
 
 .analytics-container th, .analytics-container td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
-  word-wrap: break-word; /* Helps in wrapping long text */
+  word-wrap: break-word; 
 }
 
 .analytics-container th {
@@ -36,18 +36,18 @@
   }
 
   .analytics-container table, .analytics-container th, .analytics-container td {
-    display: block; /* Make table elements block-level */
+    display: block;
     width: 100%;
   }
 
   .analytics-container th, .analytics-container td {
-    text-align: left; /* Align text to the right for better readability */
+    text-align: left; 
     position: relative;
-    padding-left: 10%  ; /* Create space for labels on the left */
+    padding-left: 10%  ; 
   }
 
   .analytics-container th::before, .analytics-container td::before {
-    content: attr(data-label); /* Use data-label attribute for column names */
+    content: attr(data-label); 
     position: absolute;
     left: 0;
     width: 50%;

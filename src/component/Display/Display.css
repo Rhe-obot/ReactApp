@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 0 10px; /* Added padding for better spacing on larger screens */
+  padding: 0 10px; 
 }
 
 .display {
@@ -59,7 +59,7 @@
 }
 
 .learn-more:hover {
-  color: rgb(23, 7, 94); /* Added hover state for better interaction */
+  color: rgb(23, 7, 94);
 }
 
 .modal-content {
@@ -94,18 +94,18 @@
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 4px; /* Added border-radius for consistency */
+  border-radius: 4px; 
 }
 
 .close-button:hover {
-  background-color: rgb(76, 14, 191); /* Added hover state */
+  background-color: rgb(76, 14, 191);
 }
 
 /* For smaller screens */
 @media only screen and (max-width: 800px) {
   .container {
     width: 100%;
-    padding: 0 10px; /* Adjusted padding for smaller screens */
+    padding: 0 10px; 
   }
 
   .display {
@@ -114,11 +114,11 @@
   }
 
   .image-container {
-    margin-bottom: 10px; /* Adjusted spacing */
+    margin-bottom: 10px; 
   }
 
   .overlay {
-    border-radius: 8px; /* Ensure border-radius is consistent */
+    border-radius: 8px; 
   }
 
   .learn-more {
