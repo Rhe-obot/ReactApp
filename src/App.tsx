@@ -1,23 +1,16 @@
-import * as React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Display from './component/Display/Display';
-import Analytics from './component/Analytics/Analytics';
+import './App.css'
+import AppRouter from './AppRouter';
 
 
 
-const App: React.FC = () => {
+
+function App() {
   return (
-    
-    <React.Suspense fallback={<>Loading...</>}>
-      
-    <Router>
-      <Routes>
-         <Route path="/" element={<Display />} />
-          <Route path="/analytics" element={<Analytics />} />
-        </Routes>
-      </Router>
-      </React.Suspense>
-  );
-};
+    <>
+    <AppRouter />
+    </>
+  )
+}
 
 export default App;
+

@@ -25,6 +25,7 @@
       },
       "author": {
         "name": "Jane Doe",
+        "avatar": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80",
         "role": "Author"
       }
     },

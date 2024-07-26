@@ -15,7 +15,7 @@ const Analytics: React.FC = () => {
 
   return (
     <div className="analytics-container">
-      <Navbar/>
+      <Navbar />
       <h2>Analytics</h2>
       <table>
         <thead>

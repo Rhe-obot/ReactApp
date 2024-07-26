@@ -32,6 +32,15 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    maxWidth: '500px', 
+    width: '90%',
+    padding: '0',
+    border: 'none',
+    borderRadius: '10px',
+    overflow: 'hidden'
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
   },
 };
 
@@ -48,14 +57,14 @@ const Display: React.FC = () => {
     throw new Error('ClickContext must be used within a ClickProvider');
   }
 
-  const { state, dispatch } = context;
+  const {  dispatch } = context;
 
   useEffect(() => {
     fetch('/Data.json')
       .then(response => response.json())
       .then(data => {
         setArticles(data);
-        setLoading(false); 
+        setLoading(false);
       });
   }, []);
 
@@ -81,11 +90,9 @@ const Display: React.FC = () => {
           <p>Loading...</p>
         </div>
       ) : (
-        <>
+        <div className="cards-container">
           {articles.map(article => (
-            <div key={article.it} className="display">
-              <h2>{article.title}</h2>
-              <p>{new Date(article.date * 1000).toLocaleDateString()}</p>
+            <div key={article.it} className="card">
               <div className="image-container">
                 <img src={article.thumbnail.small} alt={article.title} />
                 <div className="overlay">
@@ -97,39 +104,52 @@ const Display: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <p>Clicks: {state.clicks[article.it] || 0}</p>
-              <p>{article.content}</p>
+              <div className="card-content">
+                <h2>{article.title}</h2>
+                <p>{article.content}</p>
+                <div className="card-date">
+                  <p>{new Date(article.date * 1000).toLocaleDateString()}</p>
+                </div>
+                <div className="card-author">
+                  <p>{article.author.name} - {article.author.role}</p>
+                </div>
+               
+              </div>
             </div>
           ))}
+        </div>
+      )}
 
-          {selectedArticle && (
-            <Modal
-              isOpen={modalIsOpen}
-              onRequestClose={closeModal}
-              style={{
-                ...customStyles,
-                overlay: { transition: "opacity 0.3s ease" },
-              }}
-              contentLabel="Article Modal"
-            >
-              <div className="modal-content">
-                <h2>{selectedArticle.title}</h2>
-                <img src={selectedArticle.thumbnail.large} alt={selectedArticle.title} className="modal-main-image" />
-                <div className="author-details">
-                  {selectedArticle.author.avatar && (
-                    <img src={selectedArticle.author.avatar} alt={selectedArticle.author.name} className="author-avatar" />
-                  )}
-                  <div>
-                    <p><strong>{selectedArticle.author.name}</strong></p>
-                    <p>{selectedArticle.author.role}</p>
-                  </div>
-                </div>
-                <p>{new Date(selectedArticle.date * 1000).toLocaleDateString()}</p>
-                <button onClick={closeModal} className="close-button">Close</button>
+      {selectedArticle && (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Article Modal"
+        >
+          <div className="modal-header">
+          <img 
+              src="/close-button.svg" 
+              alt="Close" 
+              className="modal-close-button" 
+              onClick={closeModal} 
+            />
+            <img src={selectedArticle.thumbnail.large} alt={selectedArticle.title} className="modal-main-image" />
+          </div>
+          <div className="modal-body">
+            <h2 className="modal-title">{selectedArticle.title}</h2>
+            <p className="modal-content">{selectedArticle.content}</p>
+            <div className="author-details">
+              {selectedArticle.author.avatar && (
+                <img src={selectedArticle.author.avatar} alt={selectedArticle.author.name} className="author-avatar" />
+              )}
+              <div>
+                <p>{selectedArticle.author.name} - {selectedArticle.author.role}</p>
               </div>
-            </Modal>
-          )}
-        </>
+            </div>
+           
+          </div>
+        </Modal>
       )}
     </div>
   );
