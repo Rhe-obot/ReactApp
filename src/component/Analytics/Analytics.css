@@ -1,9 +1,7 @@
 .analytics-container {
   width: 100%;
-  max-width: 1200px;
-  background-color: rgb(226, 221, 234);
   margin: 0 auto;
-  padding: 20px;
+  padding: 50px;
   box-sizing: border-box;
 }
 

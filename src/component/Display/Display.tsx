@@ -17,7 +17,7 @@ interface Author {
 
 interface Article {
   it: number;
-  date: number;
+  date: string;
   title: string;
   content: string;
   thumbnail: Thumbnail;
@@ -33,10 +33,10 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     maxWidth: '500px', 
-    width: '90%',
+    width: '70%',
     padding: '0',
     border: 'none',
-    borderRadius: '10px',
+    borderRadius: '5px',
     overflow: 'hidden'
   },
   overlay: {
@@ -51,7 +51,7 @@ const Display: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const context = useContext(ClickContext);
-  const [loading, setLoading] = useState(true);
+
 
   if (!context) {
     throw new Error('ClickContext must be used within a ClickProvider');
@@ -64,7 +64,6 @@ const Display: React.FC = () => {
       .then(response => response.json())
       .then(data => {
         setArticles(data);
-        setLoading(false);
       });
   }, []);
 
@@ -85,11 +84,6 @@ const Display: React.FC = () => {
   return (
     <div className="container">
       <Navbar />
-      {loading ? (
-        <div className="loading">
-          <p>Loading...</p>
-        </div>
-      ) : (
         <div className="cards-container">
           {articles.map(article => (
             <div key={article.it} className="card">
@@ -104,11 +98,23 @@ const Display: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div className="card-content">
+              <div className="card-description">
+              <div className="dots">
+          <div className="dot blue">
+          <img 
+              src="/bluedot.png"  alt="dot"  />
+          </div>
+          <div className="dot yellow">
+          <img 
+              src="/yellowdot.png"  alt='dot' />
+          </div>
+        </div>
                 <h2>{article.title}</h2>
+                <div className='card-content'>
                 <p>{article.content}</p>
+                </div>
                 <div className="card-date">
-                  <p>{new Date(article.date * 1000).toLocaleDateString()}</p>
+                  <p>{article.date }</p>
                 </div>
                 <div className="card-author">
                   <p>{article.author.name} - {article.author.role}</p>
@@ -118,7 +124,7 @@ const Display: React.FC = () => {
             </div>
           ))}
         </div>
-      )}
+      
 
       {selectedArticle && (
         <Modal
@@ -129,7 +135,7 @@ const Display: React.FC = () => {
         >
           <div className="modal-header">
           <img 
-              src="/close-button.svg" 
+              src="/close-button.png" 
               alt="Close" 
               className="modal-close-button" 
               onClick={closeModal} 

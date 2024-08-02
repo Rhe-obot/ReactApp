@@ -1,43 +1,52 @@
 .navbar {
-   margin: auto;
-  width: 100%;
-  height: 5rem;
+  position: fixed;
+  margin:0;
+  top: 0;
+  background-color: white;
+  width: 92%;
+  height: 3rem;
+  font-style: italic;
+  display: flex;
+  color: white; 
+  text-decoration: none;
+  box-shadow: 0 1px  rgba(0, 0, 0, 0.1);
+  z-index: 1000; 
+}
+
+.navbar-options {
+  list-style: none;
+  display: flex;
+  
+}
+
+.navbar-options-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  padding: 5px;
+  flex: 1;
+}
+
+.navbar-options-list > li {
+  height: 100%;
+  font-size: 20px;
+  flex: 1;
+  text-align: center;
+  padding: 10px 20px 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  }
-  .navbar-options{
-     list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    
-    
-  }
-  .navbar-options-list{
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin: 0;
-    padding: 5px;
-    flex: 1;
-  }
-  .navbar-options-list> li{
-    height: 100%;
-    font-size: 30px;
-      flex: 1;
-      text-align: center;
-      padding: 10px 20px 5px 10px;
-      text-decoration: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      color: rgb(248, 245, 245);
-    }
+  color: black; 
+}
 
-    .navbar-options-list a:hover{
-        background-color: rgb(252, 249, 249);
-      }
-      
-          
-      .navbar-options-list > li:hover{
-        color: #04080f;
-      }
+.navbar-options-list a:hover {
+  background-color: rgb(252, 249, 249);
+}
+
+.navbar-options-list > li:hover {
+  color: #04080f;
+}
