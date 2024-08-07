@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <div className='navbar-options'>
         <ul className='navbar-options-list'>
           <li className={location.pathname === "/" ? "active" : ""}>
@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
           </li>
         </ul>
       </div>
-    </nav>
+    </div>
   );
 };
 
