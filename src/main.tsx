@@ -1,10 +1,13 @@
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import { ClickProvider } from './component/Click/ClckContext.tsx'
+// src/index.tsx or src/App.tsx
+import React from 'react';
+import App from './App'; // Your main App component
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ClickProvider>
-    <App />
-  </ClickProvider>,
-)
+const container = document.getElementById('root'); // Get the root element
+const root = createRoot(container!); // Create a root
+
+root.render(
+  <React.StrictMode>
+      <App />
+    </React.StrictMode>
+);

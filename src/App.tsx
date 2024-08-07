@@ -1,14 +1,25 @@
-import './App.css'
-import AppRouter from './AppRouter';
+import { BrowserRouter as Router, Route,  Routes } from 'react-router-dom';
+import Analytics from './component/Analytics/Analytics';
+import Display from './component/Display/Display';
+import { ClickProvider } from './component/Click/ClickContext';
+import React from 'react';
 
 
-function App() {
+const App = () => {
   return (
-    <>
-    <AppRouter />
-    </>
+    <ClickProvider>
+      <React.Suspense>
+    <Router>
+    <Routes>
+    <Route path="/" element={<Display />} />
+    <Route path="/analytics" element={<Analytics />} />
+    </Routes>
+    </Router>
+    </React.Suspense>
+    </ClickProvider>
+    
+    
   )
 }
 
-export default App;
-
+export default App

@@ -1,5 +1,5 @@
 .container {
-  padding: 20px;
+  padding: 40px;
 }
 
 .loading {
@@ -50,7 +50,7 @@ bottom: -8px;
   margin: 0;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 60%;
+  height: 70%;
  
 }
 
@@ -59,7 +59,7 @@ bottom: -8px;
   top: 0;
   right: 0px;
   width: 100%;
-  height: 60%;
+  height: 70%;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -73,11 +73,11 @@ bottom: -8px;
 }
 
 .learn-more {
-  background: rgba(0, 0, 0, 0.3);
+  background: none;
   color: #fff;
    border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .card-description {
@@ -86,7 +86,7 @@ bottom: -8px;
   flex-direction: column;
   gap: 5px; 
   flex-grow: 1; 
-  margin-top: -90px;
+  margin-top: -60px;
   justify-content: space-between; 
   align-items: flex-start; 
   
@@ -102,7 +102,7 @@ bottom: -8px;
   position: relative;
   color: gray;
   margin-top: 5px; 
-  top: 50px;
+  top: 40px;
   font-weight: lighter;
   text-align: left;
   font-family: 'lato';
@@ -112,65 +112,160 @@ bottom: -8px;
 .card-date {
   position: relative;
   left: 450px;
+   top: -5px;
   color: gray;
-  top: 45px;
 }
 
 .card-author {
   position: relative;
   margin-left: 15px;
-   top: -10px;
+   bottom: -50px;
   color: gray;
 
 }
 .dots{
   display: flex;
   padding-left: 15px;
-  margin-top: -60px;
+  margin-top: -30px;
 }
 @media (max-width: 800px) {
-
+ .card{
+  position: relative;
+  max-width: auto;
+ }
     
  .card-author {
     text-align: left; 
-    top: -100px;
+    top: -40px;
   }
   
+  .card-date {
+    text-align: left; 
+    top: -60px;
+    }
 
   .card-description {
     position: relative;
     bottom: -90px;
     gap: 1px;
+    display: flex;
   }
   .card-content{
     position: relative;
-    font-size: 17px;
+    font-size: 16px;
     top: -30px;
   }
   .card-description h2{
     margin-bottom: 20px;
   }
-}
-@media (max-width: 700px) {
-  .card {
+  .image-container{
+    height: auto;
     width: 100%;
   }
-  
- .card-author {
-    position: static; 
-    text-align: left; 
-    top: 15px; 
-  }
-
-  .card-content {
-    gap: 25px; 
+  .image-container img {
+    width: 100%;
+    height: 100%;  
   }
 }
+@media (max-width: 700px) {
+  .cards-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  .image-container{
+    height: auto;
+    width: 100%;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;  
+  }
+  .card{
+    position: relative;
+    max-width: 100%;
+    width: 700px;
+    justify-content: space-between;
+    gap: 50px;  
+   }
+      
+   .card-author {
+      text-align: left; 
+      top: -40px;
+    }
+    
+    .card-date {
+      text-align: left; 
+      top: -60px;
+      }
+  
+    .card-description {
+      position: relative;
+      bottom: -40px;
+      font-size: 15px;
+      gap: 1px;
+      display: flex;
+    }
+    .card-content{
+      position: relative;
+      font-size: 16px;
+      top: -30px;
+    }
+    .dots{
+      margin-top: -65px;
+     
+    }
+    .card-description h2{
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+    .overlay{
+      position: absolute;
+      height: 80%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .image-container:hover .overlay {
+      opacity: 1;
+    }
+    .learn-more {
+      background: none;
+      color: #fff;
+       border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .Modal {
+     width: 100%;
+     max-width: 400px;
+     margin-bottom: -90px ;
+    }
+    .modal-main-image{
+     margin-top: 15px;
+     max-height: 180px;
+    }
+    .modal-body {
+      padding: 10px;
+      margin-bottom: 60px;
+      font-family: 'Lato' ;
+      font-size: 13px;
+      border-radius: 7px;
+    }
+    .modal-body p{
+      color: #696868;
+      font-size: 13px;
+    }
+  }
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background: #f5f2f2;
+  z-index: 5px;
 }
 
 .modal-main-image {
@@ -200,7 +295,7 @@ bottom: -8px;
 
 .modal-content {
   text-align: left; 
-  margin-top: 5px;
+  margin-top: 6px;
   font-size: 12px; 
   color: #adacac;
 }

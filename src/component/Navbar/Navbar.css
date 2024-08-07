@@ -5,12 +5,11 @@
   background-color: white;
   width: 92%;
   height: 3rem;
-  font-style: italic;
   display: flex;
   color: white; 
+  cursor: pointer;
   text-decoration: none;
   box-shadow: 0 1px  rgba(0, 0, 0, 0.1);
-  z-index: 1000; 
 }
 
 .navbar-options {
@@ -23,10 +22,8 @@
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  text-decoration: none;
-  color: black;
   margin: 0;
-  padding: 5px;
+  padding: 0;
   flex: 1;
 }
 
@@ -40,13 +37,17 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.navbar-options-list > li a {
   color: black; 
+  text-decoration: none; 
 }
 
-.navbar-options-list a:hover {
-  background-color: rgb(252, 249, 249);
+.navbar-options-list > li a:hover {
+  color: #182842; 
 }
 
-.navbar-options-list > li:hover {
-  color: #04080f;
+.navbar-options-list > li.active a {
+  color: rgb(39, 30, 165); 
 }
